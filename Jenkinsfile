@@ -19,7 +19,7 @@ pipeline{
         }
         stage("deploy container"){
             steps{	    
-                sh "docker run deinmaarnix/$JOB_NAME:$BUILD_NUMBER"
+                sh "docker run -d -p 80$BUILD_NUMBER:3000 deinmaarnix/$JOB_NAME:$BUILD_NUMBER"
          }
        }
     }
